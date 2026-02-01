@@ -15,7 +15,8 @@ Lab Setup
 
 Loud Scan
 
-— A loud Nmap scan was executed to maximize speed and information gathering
+— A loud Nmap scan (nmap -sS -sV -A -T4 -p- <TARGET>
+) was executed to maximize speed and information gathering
 — The scan generated an extremely high volume of traffic
 — Normal background network activity was overwhelmed and visually drowned out
 — Approximately 133,000 packets were captured during the scan
@@ -25,7 +26,8 @@ Loud Scan
 
 Stealth Scan
 
-— A stealth-ier Nmap scan was performed using slower timing and a limited port scope
+— A stealth-ier Nmap scan was performed (nmap -sS -Pn -T1 --top-ports 100 <TARGET>
+) using slower timing and a limited port scope
 — Packet volume was significantly lower than the loud scan
 — Traffic was spread out over time instead of appearing in bursts
 — Scan traffic blended into normal background activity such as ARP, DNS, and SSDP
@@ -49,4 +51,5 @@ Final Notes
 — Only a small portion of packets represent real exposure
 — Stealth does not mean invisible, it means less noticeable
 — Understanding baseline network behavior is critical for effective detection
+
 
