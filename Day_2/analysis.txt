@@ -8,8 +8,8 @@ Overview
 
 Lab Setup
 
-— Attacker machine: Kali Linux (192.168.56.109)
-— Target machine: Metasploitable (192.168.56.105)
+— Attacker machine: Kali Linux (192.168.56.105)
+— Target machine: Metasploitable (192.168.56.109)
 — Traffic analysis tool: Wireshark
 — All systems were connected to the same isolated internal network
 
@@ -49,3 +49,4 @@ Final Notes
 — Only a small portion of packets represent real exposure
 — Stealth does not mean invisible, it means less noticeable
 — Understanding baseline network behavior is critical for effective detection
+
