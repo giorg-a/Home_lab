@@ -45,6 +45,3 @@ Conclusion
 
 Today’s lab helped visualize and understand how loud and stealth Nmap scans actually behave on a real network, rather than just reading about them theoretically.
 All observations are supported by the provided Wireshark screenshots, showing both filtered and unfiltered views of the traffic.
-
-
-If you want, next I can:
