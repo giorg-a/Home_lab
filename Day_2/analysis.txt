@@ -1,47 +1,51 @@
-Day 2 — Loud vs Stealth Nmap Scan
+Day 2 — Loud vs Stealth Nmap Scans
 Network Behavior Analysis
-Goal
+Overview
 
-— Analyze and compare how loud and stealth-ier Nmap scans behave on a network
-— Observe real differences using Wireshark, not just Nmap output
+— Day 2 focused on analyzing how different Nmap scanning strategies behave on the network
+— The goal was to compare loud and stealth-ier scans from a defensive and monitoring perspective
+— Wireshark was used to visualize packet volume, timing, and interaction with background traffic
 
 Lab Setup
 
-— Attacker machine: Kali Linux
-— Target machine: Metasploitable
-— Traffic visualization: Wireshark
+— Attacker machine: Kali Linux (192.168.56.109)
+— Target machine: Metasploitable (192.168.56.105)
+— Traffic analysis tool: Wireshark
+— All systems were connected to the same isolated internal network
 
 Loud Scan
 
-— Generated an extremely large amount of traffic
-— Normal background network activity was overwhelmed
-— Around 133,000 packets captured in total
-— Only about 1,300 packets represented successful connections (SYN-ACK)
-— Very easy to detect due to high contrast with baseline traffic
-— Provided a large amount of useful information about the target
-— Difference is clearly visible in filtered vs unfiltered captures
+— A loud Nmap scan was executed to maximize speed and information gathering
+— The scan generated an extremely high volume of traffic
+— Normal background network activity was overwhelmed and visually drowned out
+— Approximately 133,000 packets were captured during the scan
+— Only around 1,300 packets represented successful connections (SYN-ACK)
+— The scan traffic dominated the capture and was very easy to identify
+— Despite being highly detectable, the scan provided a large amount of useful information about the target
 
 Stealth Scan
 
-— Generated significantly less traffic
-— Packets were spread out over time
-— Blended in with background traffic such as ARP, DNS, and SSDP
-— Took approximately 1,652 seconds (~27 minutes) to complete
-— Much harder to visually detect
-— Provided less information compared to the loud scan
+— A stealth-ier Nmap scan was performed using slower timing and a limited port scope
+— Packet volume was significantly lower than the loud scan
+— Traffic was spread out over time instead of appearing in bursts
+— Scan traffic blended into normal background activity such as ARP, DNS, and SSDP
+— The scan took approximately 1,652 seconds (~27 minutes) to complete
+— Much less information was gathered compared to the loud scan
+— Detection required focused filtering and correlation rather than visual inspection
 
-Key Takeaways
+Loud vs Stealth
 
-— Loud scans are fast, noisy, and information-rich, but very easy to detect
-— Stealth scans are slow, quiet, and blend into normal network behavior
-— Stealth does not mean invisible; it means lower contrast with baseline traffic
-— Most scan traffic is noise, while only a small portion represents real exposure
+— Loud scans are fast, noisy, and information-rich
+— Stealth scans are slow, quiet, and less visually distinguishable
+— Loud scans create strong contrast with baseline traffic
+— Stealth scans reduce contrast rather than eliminating visibility
 
-Conclusion
+Loud scans look like noise.
+Stealth scans look like background activity.
 
-— This lab demonstrated how loud and stealth Nmap scans actually look and behave on a real network
-— All observations are supported by the included Wireshark screenshots
-Conclusion
+Final Notes
 
-Today’s lab helped visualize and understand how loud and stealth Nmap scans actually behave on a real network, rather than just reading about them theoretically.
-All observations are supported by the provided Wireshark screenshots, showing both filtered and unfiltered views of the traffic.
+— Most scan traffic consists of noise, not meaningful connections
+— Only a small portion of packets represent real exposure
+— Stealth does not mean invisible, it means less noticeable
+— Understanding baseline network behavior is critical for effective detection
