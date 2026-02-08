@@ -1,8 +1,8 @@
-# Day 1 – OpenVAS Setup & Vulnerability Scanning
+# Day 3 – OpenVAS Setup & Vulnerability Scanning
 
 ## Overview
 
-Day 1 focused on understanding how vulnerability scanning works and learning what CVEs are.
+Day 3 focused on understanding how vulnerability scanning works and learning what CVEs are.
 
 My goal was to set up OpenVAS, run my first scan, and focus on learning one CVE at a time so I could understand it better instead of trying to learn too many at once.
 
@@ -53,3 +53,4 @@ CVEs are ID numbers given to known security problems. One service can have multi
 ## Final Notes
 
 This lab helped me understand how vulnerability scanning works and how misconfigurations can expose systems. It also helped me learn the importance of studying one vulnerability at a time to fully understand it.
+
