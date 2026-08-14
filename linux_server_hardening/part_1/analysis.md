@@ -33,7 +33,7 @@ sudo systemctl enable --now ssh
 sudo systemctl status ssh
 ```
 
-![ssh install and enable](screenshots/ssh_setup.png)
+
 
 Confirmed `active (running)`, listening on port 22 for both IPv4 and IPv6.
 
@@ -47,7 +47,7 @@ Generated a keypair on Kali using the ed25519 algorithm, a modern elliptic curve
 ssh-keygen -t ed25519 -C "homelab-ubuntu"
 ```
 
-![key generation](screenshots/key_generation.png)
+
 
 This produced two files:
 
@@ -55,7 +55,7 @@ This produced two files:
 ls -la ~/.ssh/
 ```
 
-![key directory listing](screenshots/key_dir.png)
+
 
 - `id_ed25519`, the private key, permissions restricted to the owner only
 - `id_ed25519.pub`, the public key, safe to copy to remote servers
@@ -68,7 +68,7 @@ Used `ssh-copy-id` to push the public key to the Ubuntu VM. This appends the key
 ssh-copy-id ubuntu@192.168.56.113
 ```
 
-![copying key to ubuntu](screenshots/copy_key_to_ubuntu.png)
+
 
 Verified the key landed correctly on the server:
 
@@ -76,7 +76,7 @@ Verified the key landed correctly on the server:
 cat ~/.ssh/authorized_keys
 ```
 
-![copied key confirmation](screenshots/copied_key.png)
+
 
 Tested that key based login worked before making any further changes:
 
@@ -108,8 +108,6 @@ PermitEmptyPasswords no
 - `PubkeyAuthentication yes` confirms key based authentication is explicitly enabled rather than relying on compiled in defaults.
 - `PermitEmptyPasswords no` blocks login for any account that might have an empty password set, which is a real misconfiguration risk if user accounts are ever created by automation without a password being set.
 
-![ssh config part 1](screenshots/ssh_config_1.png)
-![ssh config part 2](screenshots/ssh_config_2.png)
 
 Applied the change:
 
@@ -117,7 +115,7 @@ Applied the change:
 sudo systemctl restart ssh
 ```
 
-![post config restart](screenshots/post_config.png)
+
 
 ## Verifying the Hardening
 
@@ -151,7 +149,7 @@ Watched the SSH service log in real time while triggering logins from Kali:
 sudo journalctl -u ssh -f
 ```
 
-![ssh logs](screenshots/ssh_logs.png)
+
 
 A successful key based login produces a line similar to:
 
@@ -173,7 +171,7 @@ Captured traffic on the host only interface while connecting from Kali, filtered
 tcp.port == 22
 ```
 
-![wireshark ssh traffic](screenshots/ssh_wireshark_traffic.png)
+
 
 The capture shows the full SSH connection sequence:
 
