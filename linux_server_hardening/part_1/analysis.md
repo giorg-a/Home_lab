@@ -8,9 +8,9 @@ This writeup covers setting up SSH key authentication from scratch on a fresh Ub
 
 ## Environment
 
-- Host: Windows PC, 16GB RAM
+
 - Hypervisor: VirtualBox
-- Target VM: Ubuntu Server 24.04.4 LTS, 4GB RAM, 2 CPUs, 30GB disk (dynamically allocated)
+- Target VM: Ubuntu Server 24.04.4 LTS, 
 - Attacker/client VM: Kali Linux
 - Networking: dual adapter setup on both VMs, NAT adapter for internet access, Host only Adapter for VM to VM communication on the 192.168.56.0/24 subnet
 
