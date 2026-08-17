@@ -1,4 +1,4 @@
-# Network Segmentation and Host Firewall, Aug 15 2026
+# Network Segmentation and Host Firewall
 
 ## What happened this session
 
@@ -143,9 +143,3 @@ sudo nft flush ruleset
 That clears every table, chain, and rule in one shot, back to zero filtering. Connectivity from Kali came back right after.
 
 So right now Ubuntu has no host level firewall at all, it's fully relying on pfSense at the network level for now. Need to rebuild the nft ruleset properly for the new DMZ setup and actually persist it this time (/etc/nftables.conf + enable the nftables service) so it survives a reboot, since last time it just lived in kernel memory and vanished.
-
-## Next session
-
-- Rebuild nft ruleset on Ubuntu, this time accounting for the pfSense/DMZ routing
-- Persist it properly and actually test that it survives a reboot instead of assuming it does
-- Start looking at auditd for command level logging
